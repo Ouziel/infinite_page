@@ -1,8 +1,13 @@
 = Infinite page
 
+== Demonstration
+
+live demo : [http://ror.zarlboro.com/]
+sources : [http://github.com/Ouziel/infinite_page_demo]
+
 == Installation
 
-* Please install the {will_paginate plugin} [http://github.com/mislav/will_paginate/] before proceeding.
+* Please install the {will_paginate plugin}[http://github.com/mislav/will_paginate/] before proceeding.
 
 * then:
 
@@ -78,18 +83,20 @@ In your _posts.html.erb partial, display posts list and call infinite_page metho
                         :position => :bottom,
                         :complete => "$('infinite_page_spinner').hide();",
                         :before => "$('infinite_page_spinner').show();",
-                        :first => "alert("first page loaded);",
-                        :last => "alert("last page loaded);" %>
+                        :first => "alert('first page loaded');",
+                        :last => "alert('last page loaded');" %>
 
 Et voila! enjoy!
 
 
 == See Also
 
-* {endless_pageless} [http://github.com/dummied/endless_pageless/]
-* {jquery.pageless} [http://github.com/jney/jquery.pageless]
-* {will_paginate plugin} [http://github.com/mislav/will_paginate/]
-* {remote_function} [http://api.rubyonrails.org/classes/ActionView/Helpers/PrototypeHelper.html#M001621]
+* {infinite_page_demo}[http://github.com/Ouziel/infinite_page_demo/]
+* {endless_pageless}[http://github.com/dummied/endless_pageless/]
+* {jquery.pageless}[http://github.com/jney/jquery.pageless]
+* {will_paginate plugin}[http://github.com/mislav/will_paginate/]
+* {remote_function}[http://api.rubyonrails.org/classes/ActionView/Helpers/PrototypeHelper.html#M001621]
+
 
 == Todo
 
