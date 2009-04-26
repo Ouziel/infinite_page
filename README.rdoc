@@ -1,0 +1,102 @@
+= Infinite page
+
+== Installation
+
+* Please install the {will_paginate plugin} [http://github.com/mislav/will_paginate/] before proceeding.
+
+* then:
+
+  script/plugin install git://github.com/Ouziel/infinite_page.git
+
+
+== Instructions
+
+Infinite Page is used exactly like wil_paginate plugin but make sure of the following:
+
+* Obviously +infinite_page+ helper method should be used instead of +will_paginate+
+* Infinite page parts (each part is one page in classic pagination) should be placed in a partial
+* +infinite_page+ call should be included in this partial
+* in your controller, 
+  - XHR request: render only this partial
+  - other requests: render whole page 
+
+
+== Parameters
+
++infinite_page+ take two parameters :
+
+* +collection = nil+:: a WillPaginate:Collection return by +paginate+ function
+* +options = {}+:: see Options paragraph
+
+
+=== Options
+
+Most +will_paginate+ and +remote_function+ options are available along with infinite_page's 2 additional options.
+will_paginate options have been used for classic pagination rendered inside <noscript> tag.
+remote_function options have been used for next page XHR loading. 
+The most important option is +:update+. It indicates the DOM element ID that contains the partial.
+:url  and :render options are automatically set by +infinite_page+.
+Please refer to +will_paginate+ and +remote_function+ references.
+
+infinite_page's 2 additional options :
++:first+:: Javascript expression is called once the first page is loaded
++:last+:: Javascript expression is called after the last page is loaded
+
+
+== Example
+
+Use a paginate finder in the controller and render only the partial when request is XHR: 
+
+  def index
+    @posts = Post.paginate :page => params[:page], :order => 'created_at DESC'
+    render :partial => "posts", :object => @posts if request.xhr?
+  end
+
+In your layout insert the infinite page javascript tag and the div, or other HTML element that contains the page:
+
+  <head>
+    ...
+    <%= javascript_include_tag :defaults, "infinite_page" %>
+    ...
+  </head>
+
+If you won't load infinate_page.js in all pages, you can use content_for method.
+
+In your view:
+
+  ...
+  <div id="infinite_page_spinner">&nbsp;</div>
+  <div id="content"><%= render :partial => "posts", :object => @posts %></div>
+  ...      
+
+  
+In your _posts.html.erb partial, display posts list and call infinite_page method :
+
+  <%= render :partial => "post", :collection => @posts  %>
+  <%= infinite_page @posts, 
+                        :update => "content",
+                        :position => :bottom,
+                        :complete => "$('infinite_page_spinner').hide();",
+                        :before => "$('infinite_page_spinner').show();",
+                        :first => "alert("first page loaded);",
+                        :last => "alert("last page loaded);" %>
+
+Et voila! enjoy!
+
+
+== See Also
+
+* {endless_pageless} [http://github.com/dummied/endless_pageless/]
+* {jquery.pageless} [http://github.com/jney/jquery.pageless]
+* {will_paginate plugin} [http://github.com/mislav/will_paginate/]
+* {remote_function} [http://api.rubyonrails.org/classes/ActionView/Helpers/PrototypeHelper.html#M001621]
+
+== Todo
+
+* Make it compatible with Jquery.
+* Make it work with a div scroll.
+
+
+
+
+Copyright (c) 2009 Ouziel Slama, released under the MIT license
