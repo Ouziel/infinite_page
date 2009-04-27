@@ -13,6 +13,6 @@ Gem::Specification.new do |s|
   s.has_rdoc = false
   s.extra_rdoc_files = ['README.rdoc']
   
-  s.add_dependency(%q<mislav-will_paginate>, [">= 2.3.8"])
+  s.add_dependency(%q<will_paginate>, [">= 2.2.2"])
   s.files = %w(init.rb install.rb MIT-LICENSE README.rdoc uninstall.rb infinite_page.gemspec lib/infinite_page.rb public/javascripts/infinite_page.js)
 end

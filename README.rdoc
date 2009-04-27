@@ -33,8 +33,8 @@ Infinite Page is used exactly like wil_paginate plugin but make sure of the foll
 
 +infinite_page+ take two parameters :
 
-collection = nil+:: a WillPaginate:Collection return by +paginate+ function
-options = {}+:: see Options paragraph
+[collection = nil] a WillPaginate:Collection return by +paginate+ function
+[options = {}] see Options paragraph
 
 
 === Options
