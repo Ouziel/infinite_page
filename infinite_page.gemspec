@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.summary = "Yet another unobtrusive javascript paging plugin for Ruby on Rails. Based on will_paginate."
   s.description = "Yet another unobtrusive javascript paging plugin for Ruby on Rails. Based on will_paginate."
   
-  s.authors  = ['Ouziel Slama"]
+  s.authors  = ['Ouziel Slama']
   s.email    = 'ouziel@gmail.com'
   s.homepage = 'http://github.com/Ouziel/infinite_page'
   
