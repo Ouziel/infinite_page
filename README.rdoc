@@ -1,8 +1,11 @@
 = Infinite page
 
+Yet another unobtrusive javascript paging plugin for Ruby on Rails. Based on will_paginate.
+
 == Demonstration
 
 live demo : [http://ror.zarlboro.com/]
+
 sources : [http://github.com/Ouziel/infinite_page_demo]
 
 == Installation
@@ -30,22 +33,22 @@ Infinite Page is used exactly like wil_paginate plugin but make sure of the foll
 
 +infinite_page+ take two parameters :
 
-* +collection = nil+:: a WillPaginate:Collection return by +paginate+ function
-* +options = {}+:: see Options paragraph
+collection = nil+:: a WillPaginate:Collection return by +paginate+ function
+options = {}+:: see Options paragraph
 
 
 === Options
 
 Most +will_paginate+ and +remote_function+ options are available along with infinite_page's 2 additional options.
-will_paginate options have been used for classic pagination rendered inside <noscript> tag.
-remote_function options have been used for next page XHR loading. 
+will_paginate options are used for classic pagination rendered inside <noscript> tag.
+remote_function options are used for next page XHR loading. 
 The most important option is +:update+. It indicates the DOM element ID that contains the partial.
 :url  and :render options are automatically set by +infinite_page+.
 Please refer to +will_paginate+ and +remote_function+ references.
 
 infinite_page's 2 additional options :
-+:first+:: Javascript expression is called once the first page is loaded
-+:last+:: Javascript expression is called after the last page is loaded
+[:first] Javascript expression is called once the first page is loaded
+[:last] Javascript expression is called after the last page is loaded
 
 
 == Example
