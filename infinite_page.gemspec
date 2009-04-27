@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name    = 'infinite_page'
-  s.version = '0.1'
+  s.version = '0.1.0'
   s.date    = '2009-04-27'
   
   s.summary = "Yet another unobtrusive javascript paging plugin for Ruby on Rails. Based on will_paginate."
